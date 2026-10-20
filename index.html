@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#7a0f1e" />
+  <title>Gửi Vợ Yêu · 20/10</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Be+Vietnam+Pro:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="phone">
+    <div id="screen" class="screen">
+      <!-- Cánh hoa rơi + pháo hoa trái tim -->
+      <canvas id="petals" aria-hidden="true"></canvas>
+      <canvas id="fireworks" aria-hidden="true"></canvas>
+
+      <!-- Màn hình mở thư -->
+      <div id="intro" class="intro">
+        <p class="intro__hint">Có một bức thư dành cho em</p>
+        <button id="envelope" class="envelope" aria-label="Mở thư">
+          <!-- Lòng phong bì -->
+          <svg class="envelope__back" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="envInside" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#c98a88" />
+                <stop offset="1" stop-color="#dcaaa5" />
+              </linearGradient>
+              <linearGradient id="envFront" x1="0" y1="0" x2="0.3" y2="1">
+                <stop offset="0" stop-color="#f8e3de" />
+                <stop offset="1" stop-color="#ebc3bd" />
+              </linearGradient>
+              <linearGradient id="envFlap" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#efcfc8" />
+                <stop offset="1" stop-color="#dea49d" />
+              </linearGradient>
+            </defs>
+            <rect width="300" height="200" rx="14" fill="url(#envInside)" />
+          </svg>
+          <span class="envelope__letter">
+            <span class="envelope__letter-text">20 · 10</span>
+          </span>
+          <!-- Mặt trước (túi) -->
+          <svg class="envelope__front" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 14 L136 114 Q150 124 164 114 L300 14 V186 Q300 200 286 200 H14 Q0 200 0 186 Z" fill="url(#envFront)" />
+            <path d="M6 195 L126 120 M294 195 L174 120" stroke="#b9767a" stroke-opacity="0.18" stroke-width="1.2" fill="none" />
+          </svg>
+          <!-- Nắp -->
+          <svg class="envelope__flap" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 14 Q0 0 14 0 H286 Q300 0 300 14 V17 Q300 23 295 26.5 L161 114 Q150 121 139 114 L5 26.5 Q0 23 0 17 Z" fill="url(#envFlap)" stroke="#fff" stroke-opacity="0.45" stroke-width="1" />
+          </svg>
+          <span class="envelope__seal">❤</span>
+        </button>
+        <p class="intro__tap">Chạm vào để mở</p>
+      </div>
+
+      <main id="app" class="app" aria-hidden="true">
+        <!-- Mở đầu -->
+        <section class="hero">
+          <p class="hero__eyebrow">Chúc mừng ngày</p>
+          <h1 class="hero__date"><span>20</span><i>·</i><span>10</span></h1>
+          <p class="hero__to">Gửi <span class="js-name">Vợ yêu</span> của anh</p>
+
+          <figure class="portrait">
+            <div class="portrait__frame">
+              <img src="images/vo.jpg" alt="Vợ yêu trong tà áo dài đỏ" />
+            </div>
+            <span class="portrait__spark s1">✦</span>
+            <span class="portrait__spark s2">✧</span>
+            <span class="portrait__spark s3">✦</span>
+            <figcaption>Nụ cười đẹp nhất của anh</figcaption>
+          </figure>
+
+          <div class="scroll-cue" aria-hidden="true">
+            <span>Kéo xuống nhé</span>
+            <i></i>
+          </div>
+        </section>
+
+        <!-- Lá thư -->
+        <section class="letter reveal">
+          <div class="paper">
+            <p class="paper__greet">Vợ yêu của anh,</p>
+            <div id="letterText" class="paper__body"></div>
+            <p class="paper__sign">Thương em,<br /><span class="js-from">Chồng của em</span></p>
+          </div>
+        </section>
+
+        <!-- Bó hoa (vẽ bằng CSS) -->
+        <section class="flowers">
+          <h2 class="title reveal">Tặng em bó hoa</h2>
+          <div class="bouquet reveal" aria-label="Bó hoa hồng tặng em" role="img">
+            <span class="bouquet__wrap-back"></span>
+            <span class="bouquet__stems"></span>
+
+            <span class="leaf" style="--x:4px;   --y:78px; --r:-50deg"></span>
+            <span class="leaf" style="--x:238px; --y:70px; --r:48deg"></span>
+            <span class="leaf" style="--x:28px;  --y:24px; --r:-22deg"></span>
+            <span class="leaf" style="--x:218px; --y:20px; --r:26deg"></span>
+            <span class="leaf" style="--x:128px; --y:-14px; --r:4deg"></span>
+
+            <span class="gyp" style="--x:0px;   --y:40px"></span>
+            <span class="gyp" style="--x:216px; --y:44px"></span>
+            <span class="gyp" style="--x:96px;  --y:-6px"></span>
+            <span class="gyp" style="--x:168px; --y:2px"></span>
+
+            <span class="rose rose--pink"  style="--x:70px;  --y:26px;  --s:64px; --i:4"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="rose rose--blush" style="--x:146px; --y:24px;  --s:66px; --i:5"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="rose rose--red"   style="--x:110px; --y:-10px; --s:52px; --i:6"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="rose rose--pink"  style="--x:40px;  --y:88px;  --s:66px; --i:1"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="rose rose--red"   style="--x:170px; --y:86px;  --s:68px; --i:2"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="rose rose--red"   style="--x:102px; --y:68px;  --s:78px; --i:0"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="rose rose--blush" style="--x:14px;  --y:136px; --s:58px; --i:3"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="rose rose--pink"  style="--x:208px; --y:134px; --s:58px; --i:3"><i></i><i></i><i></i><i></i><i></i></span>
+
+            <span class="bouquet__wrap-front"></span>
+            <span class="bow"><i></i><i></i><b></b></span>
+          </div>        </section>
+
+
+        <!-- Lời chúc -->
+        <section class="wishes">
+          <h2 class="title reveal">Anh chúc em</h2>
+          <ul class="wish-list">
+            <li class="reveal"><span>🌹</span>Luôn xinh đẹp, rạng rỡ</li>
+            <li class="reveal"><span>🍀</span>Mạnh khoẻ, bình an</li>
+            <li class="reveal"><span>🤰</span>Mẹ tròn con vuông</li>
+            <li class="reveal"><span>💝</span>Mãi được anh yêu thương</li>
+          </ul>
+        </section>
+
+        <!-- Em bé -->
+        <section class="baby">
+          <p class="baby__eyebrow reveal">Món quà lớn nhất</p>
+          <h2 class="baby__title reveal">Thiên thần nhỏ của chúng mình</h2>
+          <figure class="baby__photo reveal">
+            <img src="images/be-3d.jpg" alt="Ảnh siêu âm 3D của bé" loading="lazy" />
+            <figcaption>Khuôn mặt bé con 💕</figcaption>
+          </figure>
+          <figure class="baby__video reveal">
+            <video src="videos/be-yeu.mp4" muted loop playsinline preload="metadata" controls></video>
+            <figcaption>Lần đầu nhìn thấy con</figcaption>
+          </figure>
+          <p class="baby__note reveal">Cảm ơn em đã mang con đến với gia đình mình.</p>
+        </section>
+
+        <!-- Kết -->
+        <section class="finale">
+          <p class="finale__lead reveal">Và điều cuối cùng anh muốn nói…</p>
+          <button id="heartBtn" class="big-heart reveal" aria-label="Bấm vào trái tim">
+            <svg viewBox="0 0 32 29" aria-hidden="true"><path d="M23.6 0c-3 0-5.7 1.6-7.6 4.1C14.1 1.6 11.4 0 8.4 0 3.8 0 0 3.8 0 8.6 0 18.2 16 29 16 29s16-10.8 16-20.4C32 3.8 28.2 0 23.6 0z"/></svg>
+            <span>Chạm</span>
+          </button>
+          <div id="loveMsg" class="love-msg" aria-live="polite">
+            <p class="love-msg__big">Anh yêu em</p>
+            <p class="love-msg__small">Và cả con nữa ❤</p>
+          </div>
+        </section>
+
+        <footer class="footer">Made with ❤ · 20/10/2026</footer>
+      </main>
+
+      <!-- Muốn dùng bài hát riêng: đặt file vào music/nhac.mp3 -->
+      <audio id="song" src="music/nhac.mp3" loop preload="auto"></audio>
+      <button id="musicBtn" class="music" aria-label="Bật/tắt nhạc" hidden>
+        <span class="music__icon">♪</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
